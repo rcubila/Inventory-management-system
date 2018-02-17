@@ -1,6 +1,6 @@
 package ResourcesTest;
 
-import Resources.CreateItem;
+
 import Resources.Item;
 import Resources.ItemDAO;
 import org.junit.Assert;
@@ -11,8 +11,6 @@ import java.util.UUID;
 public class CreateItemTest {
 
     ItemDAO itemDAO = new ItemDAO();
-
-    CreateItem createItem = new CreateItem();
 
     @Test
     public void createItemTest() {
