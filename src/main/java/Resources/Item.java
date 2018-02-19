@@ -1,18 +1,14 @@
 package Resources;
 
-import java.util.UUID;
-
 public class Item {
-
-
     private double sellingPrice;
     private double constPrince;
     private String itemName;
     private int itemQuantity;
 
-    public Item() { }
+    public Item() {}
 
-    public Item( String itemName, double sellingPrice, double constPrince, int itemQuantity) {
+    public Item(String itemName, double sellingPrice, double constPrince, int itemQuantity) {
 
         this.sellingPrice = sellingPrice;
         this.itemName = itemName;
@@ -27,7 +23,6 @@ public class Item {
     public void setConstPrince(double constPrince) {
         this.constPrince = constPrince;
     }
-
 
     public double getSellingPrice() {
         return sellingPrice;
@@ -53,11 +48,16 @@ public class Item {
         this.itemQuantity = itemQuantity;
     }
 
+//    @Override
+//    public String toString() {
+//        return itemName + " \t " + sellingPrice + "\t" + constPrince  + "\t   $" + itemQuantity  ;
+//    }
+
     @Override
     public String toString() {
+        return
 
-
-        return  itemName + "\n" ;
+               String.format("%-15s%-15s%-15s%-15s  ", itemName  , constPrince, sellingPrice, itemQuantity);
     }
 }
 

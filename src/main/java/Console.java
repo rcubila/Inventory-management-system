@@ -1,8 +1,6 @@
 import Resources.Item;
 import Resources.ItemDAO;
-
-import java.util.Iterator;
-import java.util.UUID;
+import Resources.ItemManipulation;
 
 public class Console {
 
@@ -14,9 +12,14 @@ public class Console {
         Item shoes = new Item("shoes", 50, 25, 100 );
         Item fans = new Item("fans", 10, 2, 90 );
 
+
         itemDAO.addItemToInventory(perfume);
         itemDAO.addItemToInventory(shoes);
         itemDAO.addItemToInventory(fans);
-        System.out.println(itemDAO);
+        itemDAO.printList();
+
+
+
+
     }
 }

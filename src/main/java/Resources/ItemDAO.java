@@ -4,18 +4,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ItemDAO {
+public class ItemDAO implements ItemManipulation {
 
     private List<Item> itemList = new ArrayList<Item>();
-
+    @Override
     public List<Item> getAllItems() {
         return itemList;
     }
 
+    @Override
     public void addItemToInventory(Item item) {
         itemList.add(item);
     }
-
     public void deleteItemByname(String itemName) {
         Iterator<Item> it = itemList.iterator();
         while (it.hasNext()) {
@@ -25,7 +25,6 @@ public class ItemDAO {
             }
         }
     }
-
     public void updateAndIncreaseItemQuantity(String itemName, int quantityPurchased) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
@@ -34,7 +33,6 @@ public class ItemDAO {
             }
         }
     }
-
     public void deductItemSoldFromInventory(String itemName, int amountOfItemSold) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
@@ -49,7 +47,6 @@ public class ItemDAO {
             }
         }
     }
-
     public void reduceItemSellingPrice(String itemName, double sellingPrince) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
@@ -57,13 +54,20 @@ public class ItemDAO {
             }
         }
     }
-
-    @Override
-    public String toString() {
-        String str = "";
-        for(Item d : itemList) {
-            str+=d.toString();
+    public void printList() {
+        System.out.println("Item Name\t Bought At\t    Sold At\t    AvailableQty");
+        System.out.println("------------------------------------------------");
+        for(Item token : itemList) {
+            System.out.println( token);
         }
-        return str;
+        System.out.println("------------------------------------------------");
     }
+//    @Override
+//    public String toString() {
+//        String str = "";
+//        for(Item d : itemList) {
+//            str+= d.toString() ;
+//        }
+//        return str;
+//    }
 }
