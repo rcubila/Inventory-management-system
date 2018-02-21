@@ -1,25 +1,28 @@
+import Resources.InventoryItemsPrinterFormatter;
 import Resources.Item;
-import Resources.ItemDAO;
-import Resources.ItemManipulation;
+
+import Resources.ItemDAOImp;
 
 public class Console {
 
     public static void main(String[] args) {
 
-        ItemDAO itemDAO = new ItemDAO();
+        InventoryItemsPrinterFormatter inventoryItemsPrinterFormatter = new InventoryItemsPrinterFormatter();
+        ItemDAOImp itemDAOImp = new ItemDAOImp();
 
-        Item perfume = new Item("perfume", 30, 12, 50 );
-        Item shoes = new Item("shoes", 50, 25, 100 );
-        Item fans = new Item("fans", 10, 2, 90 );
+        Item perfume = new Item("perfume", 30.00, 12.00, 50);
+        Item shoes = new Item("shoes", 50.00, 25.00, 100);
+        Item fans = new Item("fans", 10.00, 2.00, 90);
 
+        itemDAOImp.addItemToInventory(perfume);
+        itemDAOImp.addItemToInventory(shoes);
+        itemDAOImp.addItemToInventory(fans);
 
-        itemDAO.addItemToInventory(perfume);
-        itemDAO.addItemToInventory(shoes);
-        itemDAO.addItemToInventory(fans);
-        itemDAO.printList();
-
+        inventoryItemsPrinterFormatter.printCurrentInventory(itemDAOImp.getAllItems());
 
 
 
     }
+
+
 }

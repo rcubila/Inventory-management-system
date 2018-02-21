@@ -1,14 +1,14 @@
 package Resources;
 
 public class Item {
-    private double sellingPrice;
-    private double constPrince;
+    private Double sellingPrice;
+    private Double constPrince;
     private String itemName;
-    private int itemQuantity;
+    private Integer itemQuantity;
 
     public Item() {}
 
-    public Item(String itemName, double sellingPrice, double constPrince, int itemQuantity) {
+    public Item(String itemName, Double sellingPrice, Double constPrince, Integer itemQuantity) {
 
         this.sellingPrice = sellingPrice;
         this.itemName = itemName;
@@ -16,19 +16,19 @@ public class Item {
         this.constPrince = constPrince;
     }
 
-    public double getConstPrince() {
+    public Double getConstPrince() {
         return constPrince;
     }
 
-    public void setConstPrince(double constPrince) {
+    public void setConstPrince(Double constPrince) {
         this.constPrince = constPrince;
     }
 
-    public double getSellingPrice() {
+    public Double getSellingPrice() {
         return sellingPrice;
     }
 
-    public void setSellingPrice(double sellingPrice) {
+    public void setSellingPrice(Double sellingPrice) {
         this.sellingPrice = sellingPrice;
     }
 
@@ -40,11 +40,11 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public int getItemQuantity() {
+    public Integer getItemQuantity() {
         return itemQuantity;
     }
 
-    public void setItemQuantity(int itemQuantity) {
+    public void setItemQuantity(Integer itemQuantity) {
         this.itemQuantity = itemQuantity;
     }
 

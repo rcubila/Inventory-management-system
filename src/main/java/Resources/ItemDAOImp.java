@@ -2,13 +2,15 @@ package Resources;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
-public class ItemDAO implements ItemManipulation {
+public class ItemDAOImp implements RepositoryDao<Item> {
 
-    private List<Item> itemList = new ArrayList<Item>();
+    private ArrayList<Item> itemList = new ArrayList<>();
+
+    public ItemDAOImp() {}
+
     @Override
-    public List<Item> getAllItems() {
+    public ArrayList<Item> getAllItems() {
         return itemList;
     }
 
@@ -16,7 +18,9 @@ public class ItemDAO implements ItemManipulation {
     public void addItemToInventory(Item item) {
         itemList.add(item);
     }
-    public void deleteItemByname(String itemName) {
+
+    @Override
+    public void deleteItemByName(String itemName) {
         Iterator<Item> it = itemList.iterator();
         while (it.hasNext()) {
             Item next = it.next();
@@ -25,7 +29,9 @@ public class ItemDAO implements ItemManipulation {
             }
         }
     }
-    public void updateAndIncreaseItemQuantity(String itemName, int quantityPurchased) {
+
+    @Override
+    public void updateAndIncreaseItemQuantity(String itemName, Integer quantityPurchased) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
                 int newItemQuantity = x.getItemQuantity() + quantityPurchased;
@@ -33,7 +39,9 @@ public class ItemDAO implements ItemManipulation {
             }
         }
     }
-    public void deductItemSoldFromInventory(String itemName, int amountOfItemSold) {
+
+    @Override
+    public void deductItemSoldFromInventory(String itemName, Integer amountOfItemSold) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
                 if (x.getItemQuantity() >= amountOfItemSold) {
@@ -47,27 +55,13 @@ public class ItemDAO implements ItemManipulation {
             }
         }
     }
-    public void reduceItemSellingPrice(String itemName, double sellingPrince) {
+
+    @Override
+    public void reduceItemSellingPrice(String itemName, Double sellingPrince) {
         for (Item x : itemList) {
             if (x.getItemName().equalsIgnoreCase(itemName)) {
                 x.setSellingPrice(sellingPrince);
             }
         }
     }
-    public void printList() {
-        System.out.println("Item Name\t Bought At\t    Sold At\t    AvailableQty");
-        System.out.println("------------------------------------------------");
-        for(Item token : itemList) {
-            System.out.println( token);
-        }
-        System.out.println("------------------------------------------------");
-    }
-//    @Override
-//    public String toString() {
-//        String str = "";
-//        for(Item d : itemList) {
-//            str+= d.toString() ;
-//        }
-//        return str;
-//    }
 }

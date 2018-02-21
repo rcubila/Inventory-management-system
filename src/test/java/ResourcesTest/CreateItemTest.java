@@ -2,48 +2,46 @@ package ResourcesTest;
 
 
 import Resources.Item;
-import Resources.ItemDAO;
+import Resources.ItemDAOImp;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.util.UUID;
-
 public class CreateItemTest {
 
-    ItemDAO itemDAO = new ItemDAO();
+    ItemDAOImp itemDAOImp = new ItemDAOImp();
 
     @Test
     public void createItemTest() {
 
-        Item shirt = new Item("fans", 10, 2, 90);
-        itemDAO.addItemToInventory(shirt);
+        Item shirt = new Item("fans", 10.00, 2.00, 90);
+        itemDAOImp.addItemToInventory(shirt);
         //createItem.createNewItem(shirt);
         int expect = 1;
-        int actual = itemDAO.getAllItems().size();
+        int actual = itemDAOImp.getAllItems().size();
         Assert.assertEquals(expect, actual);
     }
 
     @Test
     public void deleteItemByNameTest() {
-        Item shirt = new Item("shirt", 30, 12, 50  );
-        Item pants = new Item("pants", 50, 25, 100);
-        Item pen = new Item("pen", 10, 2, 90);
-        itemDAO.addItemToInventory(shirt);
-        itemDAO.addItemToInventory(pants);
-        itemDAO.addItemToInventory(pen);
-        itemDAO.deleteItemByname("shirt");
+        Item shirt = new Item("shirt", 30.00, 12.00, 50  );
+        Item pants = new Item("pants", 50.00, 25.00, 100);
+        Item pen = new Item("pen", 10.00, 2.00, 90);
+        itemDAOImp.addItemToInventory(shirt);
+        itemDAOImp.addItemToInventory(pants);
+        itemDAOImp.addItemToInventory(pen);
+        itemDAOImp.deleteItemByName("shirt");
         int expected = 2;
-        int actual = itemDAO.getAllItems().size();
+        int actual = itemDAOImp.getAllItems().size();
         Assert.assertEquals(expected, actual);
     }
 
     @Test
     public void updateAndIncreaseItemQuantityTest() {
-        Item pen = new Item("pen", 10, 2, 90);
-        itemDAO.addItemToInventory(pen);
-        itemDAO.updateAndIncreaseItemQuantity("pen", 3);
+        Item pen = new Item("pen", 10.00, 2.00, 90);
+        itemDAOImp.addItemToInventory(pen);
+        itemDAOImp.updateAndIncreaseItemQuantity("pen", 3);
         int expected = 93;
-        for (Item x : itemDAO.getAllItems()) {
+        for (Item x : itemDAOImp.getAllItems()) {
             int itemQuantity = x.getItemQuantity();
             Assert.assertEquals(expected, itemQuantity);
         }
@@ -51,11 +49,11 @@ public class CreateItemTest {
 
     @Test
     public void deductItemSoldFromInventoryTest() {
-        Item pants = new Item("pants", 10, 2, 20);
-        itemDAO.addItemToInventory(pants);
-        itemDAO.deductItemSoldFromInventory("pants", 3);
+        Item pants = new Item("pants", 10.00, 2.00, 20);
+        itemDAOImp.addItemToInventory(pants);
+        itemDAOImp.deductItemSoldFromInventory("pants", 3);
         int expected = 17;
-        for (Item x : itemDAO.getAllItems()) {
+        for (Item x : itemDAOImp.getAllItems()) {
             int itemQuantity = x.getItemQuantity();
             Assert.assertEquals(expected, itemQuantity);
         }
@@ -63,11 +61,11 @@ public class CreateItemTest {
 
     @Test
     public void reduceItemSellingPriceTest() {
-        Item hats = new Item("hats", 16, 15, 90);
-        itemDAO.addItemToInventory(hats);
-        itemDAO.reduceItemSellingPrice("hats", 12);
+        Item hats = new Item("hats", 16.00, 15.00, 90);
+        itemDAOImp.addItemToInventory(hats);
+        itemDAOImp.reduceItemSellingPrice("hats", 12.00);
         int expected = 12;
-        for (Item x : itemDAO.getAllItems()) {
+        for (Item x : itemDAOImp.getAllItems()) {
             double itemNewPrince = x.getSellingPrice();
             Assert.assertEquals(expected, itemNewPrince, 0);
         }
