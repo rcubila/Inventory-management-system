@@ -5,15 +5,26 @@ public class Item {
     private Double constPrince;
     private String itemName;
     private Integer itemQuantity;
+    private Integer totalValue;
 
-    public Item() {}
+    public Item() {
+    }
 
     public Item(String itemName, Double sellingPrice, Double constPrince, Integer itemQuantity) {
 
         this.sellingPrice = sellingPrice;
         this.itemName = itemName;
-        this.setItemQuantity(itemQuantity);
+        this.itemQuantity = itemQuantity;
         this.constPrince = constPrince;
+
+    }
+
+    public Integer getTotalValue() {
+        return totalValue;
+    }
+
+    public void setTotalValue(int totalValue) {
+        this.totalValue = totalValue;
     }
 
     public Double getConstPrince() {
@@ -48,16 +59,11 @@ public class Item {
         this.itemQuantity = itemQuantity;
     }
 
-//    @Override
-//    public String toString() {
-//        return itemName + " \t " + sellingPrice + "\t" + constPrince  + "\t   $" + itemQuantity  ;
-//    }
 
     @Override
     public String toString() {
         return
-
-               String.format("%-15s%-15s%-15s%-15s  ", itemName  , constPrince, sellingPrice, itemQuantity);
+                String.format("%-15s%-15s%-15s%-15s  ", itemName, constPrince, sellingPrice, itemQuantity);
     }
 }
 
