@@ -1,13 +1,13 @@
+package Resources;
+
 import Resources.CompareObj;
 import Resources.InventoryItemsPrinterFormatter;
 import Resources.Item;
-
 import Resources.ItemDAOImp;
 
-import java.util.Collections;
 import java.util.Scanner;
 
-public class Console {
+public class App {
 
     private static String userNameInput = "";
     private static String userPassInput = "";
@@ -34,33 +34,27 @@ public class Console {
 
         System.out.println("User Name please...");
 
+
+
         userNameInput = scanner.next();
 
         userPassInput = scanner.next();
 
+
     }
 
-    public String userNameCheck(String str) {
-        try {
-            if ("123".equalsIgnoreCase(str)) {
-                userPassCheck();
-            } else {
-                System.out.println("The user name entered is not recognized in our system, please try again...");
-            }
-        }catch (Exception e){
-            System.out.println("Something went wrong... ");
-        }
-        return null;
+
+
+    public boolean userNameCheck(String userName) {
+
+        return "123".equalsIgnoreCase(userName);
     }
 
-    public String userPassCheck() {
-        if ("123".equalsIgnoreCase(userPassInput)) {
-            MenuOption();
-        } else {
-            System.out.println("The password entered is wrong try again...");
-        }
-        return null;
+    public boolean userPasswordCheck(String userPass) {
+
+        return "111".equalsIgnoreCase(userPass);
     }
+
 
     private void MenuOption() {
 
